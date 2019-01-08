@@ -7,9 +7,10 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.extension.activerecord.Model;
 
 @TableName(value="t_user")
-public class User implements Serializable {
+public class User extends Model<User> implements Serializable {
 	private static final long serialVersionUID = 8162488390812814831L;
 	
 	@TableId(value="uid", type=IdType.AUTO)
@@ -65,6 +66,11 @@ public class User implements Serializable {
 	public String toString() {
 		return "User [uid=" + uid + ", username=" + username + ", birthday=" + birthday + ", gender=" + gender
 				+ ", address=" + address + "]";
+	}
+
+	@Override
+	protected Serializable pkVal() {
+		return uid;
 	}
 
 }
