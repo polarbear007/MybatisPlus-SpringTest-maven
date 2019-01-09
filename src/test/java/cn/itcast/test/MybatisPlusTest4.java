@@ -17,7 +17,9 @@ import cn.itcast.mapper.UserMapper;
 // 分页查询
 // 【注意】 selectPage()   方法的返回值是 Ipage<T>   接口类型，但是一般我们都是直接强转成 Page<T> 类型
 //       这个 Page<T>  对象既可以作为携带分页条件的参数， 也可以把分页查询的返回值
-//                   
+
+// 【注意】 mybatisPlus 的分页查询必须配合   com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor
+//        这个分页插件才有效果。  3.0.0 版本以后，不再支持 PageHelper 分页插件了。                  
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:applicationContext.xml")
 public class MybatisPlusTest4 {
