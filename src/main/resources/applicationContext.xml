@@ -36,7 +36,19 @@
 		<!-- 在spring 配置文件中添加 mybatisplus 插件的方法 -->
 		<property name="plugins">
 			<array>
+				<!-- 添加mybatisplus 自带的分页插件 
 				<bean class="com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor"/>
+				-->
+				<!-- PageHelper 分页插件 -->
+				<bean class="com.github.pagehelper.PageInterceptor" />
+				<!-- 添加执行分析插件，可以在一定程度上防止执行危险的全表更新、全表删除操作【只建议在开发环境使用】 -->
+				<bean class="com.baomidou.mybatisplus.extension.plugins.SqlExplainInterceptor" />
+				<!-- 添加性能分析插件， 可以查看每条 sql 执行的时间;   还可以帮我们格式化sql 语句 -->
+				<bean class="com.baomidou.mybatisplus.extension.plugins.PerformanceInterceptor">
+					<property name="format" value="true"/>
+				</bean>
+				<!-- 添加乐观锁插件  -->
+				<bean class="com.baomidou.mybatisplus.extension.plugins.OptimisticLockerInterceptor"/>
 			</array>
 		</property>
 	</bean>

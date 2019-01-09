@@ -1,6 +1,7 @@
 package cn.itcast.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.Version;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
@@ -29,9 +30,19 @@ public class Student extends Model<Student> {
     private Integer age;
     @TableField(value="birth_date")
     private Date birthDate;
+    @Version
+    private Integer version;
 
 
-    public Integer getSid() {
+    public Integer getVersion() {
+		return version;
+	}
+
+	public void setVersion(Integer version) {
+		this.version = version;
+	}
+
+	public Integer getSid() {
         return sid;
     }
 
